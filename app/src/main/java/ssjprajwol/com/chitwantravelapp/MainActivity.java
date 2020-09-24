@@ -1,12 +1,16 @@
 package ssjprajwol.com.chitwantravelapp;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentActivity;
+import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.google.android.material.tabs.TabLayout;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -15,27 +19,23 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main); //Inflating MainActivity class with activity_main layout.
 
-        Button button= findViewById(R.id.button); //Finding and setting button
-        TextView textView = findViewById(R.id.textview);
+        ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
 
-        textView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this,Hotel.class); //Defining the event listener inline and custom behaviour for the event
-                startActivity(intent);
-            }
-        });
+        // Create an adapter that knows which fragment should be shown on each page
+        CategoryAdapter adapter = new CategoryAdapter(this, getSupportFragmentManager());
 
-        // I could have used onCLick in XML file rather then setting EventListener here as it could be more easier, but I did not. The reason is that the
-        //functionality of onClickListener is more than onClick. You cannot control the functionality of onClick outside of it's host activity which is not same incase
-        // of onClickListener. Plus, I am going to use fragments for this app which also requires onClickListener.
+        // Set the adapter onto the view pager
+        viewPager.setAdapter(adapter);
 
-        button.setOnClickListener(new View.OnClickListener() {  //setting EventListener in button and creating object instance of EventListener in same line
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this,Restaurant.class); //Defining the event listener inline and custom behaviour for the event
-                startActivity(intent);
-            }
-        });
+        // Find the tab layout that shows the tabs
+        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
+
+        // Connect the tab layout with the view pager. This will
+        //   1. Update the tab layout when the view pager is swiped
+        //   2. Update the view pager when a tab is selected
+        //   3. Set the tab layout's tab names with the view pager's adapter's titles
+        //      by calling onPageTitle()
+        tabLayout.setupWithViewPager(viewPager);
+
     }
 }

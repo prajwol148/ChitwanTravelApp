@@ -3,6 +3,25 @@
     <color name="colorPrimary">#6200EE</color>
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#03DAC5</color>
-    <color name="hotel_color">#FD8E09</color>
+
+    <color name="primary_color">#4A312A</color>
+
+     <color name="primary_dark_color">#2F1D1A</color>
+
+    <color name="tan_background">#FFF7DA</color>
+
+
+    <color name="hotels">#f7bc74</color>
+
+    <color name="restaurants">#81e381</color>
+
+    <color name="recreational">#8800A0</color>
+
+    <color name="events">#16AFCA</color>
+
+    <color name="shopping">#f0c0fa</color>
+
+    <color name="sports">#fac3c0</color>
+
 
 </resources>
