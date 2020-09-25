@@ -39,6 +39,9 @@ public class WordAdapter extends ArrayAdapter<Word> {
         TextView item_price = listItemView.findViewById(R.id.item_price);
         item_price.setText(currentWord.getItem_price());
 
+        TextView item_time = listItemView.findViewById(R.id.item_time);
+        item_time.setText(currentWord.getItem_time());
+
         TextView item_rating = listItemView.findViewById(R.id.item_rating);
         item_rating.setText(currentWord.getItem_rating());
 

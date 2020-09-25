@@ -1,41 +1,88 @@
 package ssjprajwol.com.chitwantravelapp;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayout;
 
-public class MainActivity extends AppCompatActivity {
+
+
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {  /*implementing NavigationView.OnNavigationItemSelectedListener
+                                                                                                                    because we are settting listener to navigation list item  (see 2.0)*/
+
+    private DrawerLayout drawer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main); //Inflating MainActivity class with activity_main layout.
+        setContentView(R.layout.activity_main);
 
-        ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
-        // Create an adapter that knows which fragment should be shown on each page
-        CategoryAdapter adapter = new CategoryAdapter(this, getSupportFragmentManager());
+        drawer = findViewById(R.id.draw_layout);
+        NavigationView navigationView = findViewById(R.id.nav_view);
+        //setting listener in navigation view
+        navigationView.setNavigationItemSelectedListener(this);  // (2.0) here, we are setting navigation listener in this activity.
 
-        // Set the adapter onto the view pager
-        viewPager.setAdapter(adapter);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer,
+                toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);  /*This class provides a handy way to tie together the functionality of
+                                                                                                DrawerLayout and the framework ActionBar to implement the recommended
+                                                                                                design for navigation drawers.*/
 
-        // Find the tab layout that shows the tabs
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
+        drawer.addDrawerListener(toggle);
+        toggle.syncState();  //This will rotate the hamburger icon when click on it
 
-        // Connect the tab layout with the view pager. This will
-        //   1. Update the tab layout when the view pager is swiped
-        //   2. Update the view pager when a tab is selected
-        //   3. Set the tab layout's tab names with the view pager's adapter's titles
-        //      by calling onPageTitle()
-        tabLayout.setupWithViewPager(viewPager);
+        if (savedInstanceState == null) {
+            getSupportFragmentManager().beginTransaction().replace
+                    (R.id.fragment_container, new HotelFragment()).commit();
+            navigationView.setCheckedItem(R.id.nav_Hotels);
+        }
+    }
 
+    @Override
+    public void onBackPressed() {
+        if(drawer.isDrawerOpen(GravityCompat.START)){
+            drawer.closeDrawer(GravityCompat.START);
+        }else{
+            super.onBackPressed();
+        }
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.nav_Hotels:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new HotelFragment()).commit();
+                break;
+
+            case R.id.nav_Restaurants:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new RestaurantFragment()).commit();
+                break;
+
+            case R.id.nav_message:
+                Intent intent = new Intent(Intent.ACTION_SEND);
+                intent.setType("text/html");
+                intent.putExtra(Intent.EXTRA_EMAIL, "prajwol.tiwari@gmail.com");
+
+                startActivity(Intent.createChooser(intent, "Send Email"));
+                break;
+        }
+        drawer.closeDrawer(GravityCompat.START);
+        return true; //if return false, no item will be selected even if item is clicked in navigation view
     }
 }

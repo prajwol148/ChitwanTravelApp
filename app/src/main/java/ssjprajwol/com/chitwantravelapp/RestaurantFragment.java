@@ -26,7 +26,7 @@ public class RestaurantFragment extends Fragment {
 
         final ArrayList<Word> words = new ArrayList<Word>();
 
-        words.add(new Word("Munch Time Cafe","Bharatpur","5:00 - 6:00",
+        words.add(new Word("Munch Time Cafe","Bharatpur","9:00 AM- 10:00 PM",
                 "56- 70$","4/5",R.drawable.munch));
 
         WordAdapter adapter = new WordAdapter(getContext(),words);

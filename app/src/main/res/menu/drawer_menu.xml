@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:shownIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        // Creating group of items for menu
+        //The attribute (checkBehavior="single") makes sure user can select only one item from menu
+        // Items in this group menu will stay selected as long as user switch to another item.
+        <item
+            android:id="@+id/nav_Hotels"
+            android:icon="@drawable/ic_hotels"
+            android:title="@string/Hotel" />
+
+        <item
+            android:id="@+id/nav_Restaurants"
+            android:icon="@drawable/ic_restaurants"
+            android:title="@string/Restaurants" />
+
+        <item
+            android:id="@+id/nav_Recreation"
+            android:icon="@drawable/ic_recreation"
+            android:title="@string/Recreation" />
+
+        <item
+            android:id="@+id/nav_Events"
+            android:icon="@drawable/ic_events"
+            android:title="@string/Events" />
+
+        <item
+            android:id="@+id/nav_Shopping"
+            android:icon="@drawable/ic_shopping"
+            android:title="@string/Shopping" />
+
+        <item
+            android:id="@+id/nav_Sports"
+            android:icon="@drawable/ic_sports"
+            android:title="@string/Sports" />
+    </group>
+
+    <item android:title="Communicate">
+        <menu>
+            <item
+                android:id="@+id/nav_message"
+                android:icon="@drawable/ic_message"
+                android:title="For any queries/complains" />
+
+        </menu>
+    </item>
+</menu>

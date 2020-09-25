@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ChitwanTravelApp</string>
+    <string name="app_name">Chitwan Travel App</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
@@ -7,12 +7,17 @@
 
     <string name="Restaurants">Restaurants</string>
 
-    <string name="Recreation">Recreation</string>
+    <string name="Recreation">Recreational Areas</string>
 
     <string name="Events">Events</string>
 
-    <string name="Sports">Sports</string>
+    <string name="Sports">Sports/Esports</string>
 
-    <string name="Shopping">Shopping</string>
+    <string name="Shopping">Shopping Centres</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+
 
 </resources>
