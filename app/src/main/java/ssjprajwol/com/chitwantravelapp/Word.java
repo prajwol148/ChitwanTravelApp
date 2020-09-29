@@ -8,8 +8,9 @@ public class Word {
     private String item_time;
     private String item_price;
     private String item_rating;
-
     private int mImageResourceId;
+
+
 
     public Word(String item_title, String item_address, String item_time, String item_price, String item_rating, int ImageResourceId) {
         this.item_title = item_title;
@@ -43,4 +44,5 @@ public class Word {
     public int getImageResourceId() {
         return mImageResourceId;
     }
+
 }

@@ -8,6 +8,11 @@
         //The attribute (checkBehavior="single") makes sure user can select only one item from menu
         // Items in this group menu will stay selected as long as user switch to another item.
         <item
+            android:id="@+id/nav_Home"
+            android:icon="@drawable/ic_baseline_home_24"
+            android:title="Home" />
+
+        <item
             android:id="@+id/nav_Hotels"
             android:icon="@drawable/ic_hotels"
             android:title="@string/Hotel" />

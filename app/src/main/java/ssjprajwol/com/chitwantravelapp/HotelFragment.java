@@ -25,6 +25,7 @@ public class HotelFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.word_list, container, false);
 
         final ArrayList<Word> words = new ArrayList<Word>();
+
         words.add(new Word("Hotel Red Karpet","LionsChowk, Bharatpur","Always Open","NPR 4,700","3.5/5",R.drawable.karpet));
         words.add(new Word("Hotel Royal Century","Bharatpur Height, Bharatpur","Always Open","NPR 5,305","4.5/5",R.drawable.royal));
         words.add(new Word("Hotel Jungle Wildlife Camp","Bharatpur, Chitwan","Always Open","NPR 2,800","4.5/5",R.drawable.wildlife));

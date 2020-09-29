@@ -3,6 +3,8 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
+    <string name="Home">Home</string>
+
     <string name="Hotel">Hotels</string>
 
     <string name="Restaurants">Restaurants</string>
@@ -17,7 +19,7 @@
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-
+    <string name="about_city">The district takes its name from the Chitwan Valley, one of Nepal\'s Inner Terai valleys between the Mahabharat and Siwalik ranges, both considered foothills of the Himalayas. Narayangadh is located on the banks of the Narayani River, and is the main town with numerous shopping zones where people come from all over the district and neighboring districts. Chitwan is one of the few remaining undisturbed vestiges of the Terai region, which formerly extended over the foothills of Nepal.</string>
 
 
 </resources>

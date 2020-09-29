@@ -49,8 +49,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction().replace
-                    (R.id.fragment_container, new HotelFragment()).commit();
-            navigationView.setCheckedItem(R.id.nav_Hotels);
+                    (R.id.fragment_container, new MainScreen()).commit();
+            navigationView.setCheckedItem(R.id.nav_Home);
         }
     }
 
@@ -72,6 +72,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             case R.id.nav_Restaurants:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new RestaurantFragment()).commit();
+                break;
+
+            case R.id.nav_Home:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new MainScreen()).commit();
                 break;
 
             case R.id.nav_message:
