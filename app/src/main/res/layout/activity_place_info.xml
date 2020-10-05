@@ -14,7 +14,7 @@
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
         <com.google.android.material.appbar.CollapsingToolbarLayout
-            android:id="@+id/collapsingToolbar"
+            android:id="@+id/collapseToolbar"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fitsSystemWindows="true"
@@ -24,7 +24,7 @@
             app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
             <ImageView
-                android:id="@+id/place_image"
+                android:id="@+id/image"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:fitsSystemWindows="true"
@@ -52,21 +52,6 @@
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp">
 
-            <TextView
-                android:id="@+id/place_category"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="@dimen/category_TextView_padding"
-                android:layout_margin="@dimen/category_TextView_margin"
-                android:background="@color/colorAccent"
-                android:textAppearance="@android:style/TextAppearance.Small"
-                android:textColor="@android:color/white"
-                tools:text="Place Type" />
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/colorAccent" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -87,7 +72,7 @@
                 card_view:cardCornerRadius="4dp">
 
                 <TextView
-                    android:id="@+id/description"
+                    android:id="@+id/item_description"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="@dimen/description_textView_padding"
@@ -97,7 +82,7 @@
             </androidx.cardview.widget.CardView>
 
             <LinearLayout
-                android:id="@+id/location"
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
@@ -112,8 +97,61 @@
                     android:paddingEnd="@dimen/icon_padding_right"
                     android:src="@drawable/ic_baseline_location_on_24" />
 
+                <LinearLayout
+                    android:id="@+id/location"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
                 <TextView
-                    android:id="@+id/loc"
+                    android:id="@+id/address"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="@android:style/TextAppearance.Small"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:autoLink="map"
+                    />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="end"
+                    android:layout_marginEnd="2dp"
+                    android:layout_weight="1.9">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="@android:style/TextAppearance.Small"
+                    android:textStyle="bold"
+                    android:layout_marginStart="16dp"
+                    android:text="View in Map"
+                    android:textColor="@color/colorPrimaryDark"
+                    />
+                </LinearLayout>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorAccent" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="@dimen/information_linearLayout_padding"
+                android:background="?android:attr/selectableItemBackground"
+                >
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingEnd="@dimen/icon_padding_right"
+                    android:src="@drawable/ic_baseline_monetization_on_24" />
+
+                <TextView
+                    android:id="@+id/price"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textAppearance="@android:style/TextAppearance.Small"
@@ -141,11 +179,62 @@
                     android:src="@drawable/ic_baseline_watch_later_24" />
 
                 <TextView
-                    android:id="@+id/opening_closing_time"
+                    android:id="@+id/opening_time"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textAppearance="@android:style/TextAppearance.Small"
                     android:textStyle="bold"                         />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorAccent" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:autoLink="phone"
+                android:padding="@dimen/information_linearLayout_padding">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingEnd="@dimen/icon_padding_right"
+                    android:src="@drawable/ic_phone_black_24dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+                    <TextView
+                        android:id="@+id/item_number"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="@android:style/TextAppearance.Small"
+                        android:textStyle="bold"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:autoLink="phone"
+                        />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="end"
+                    android:layout_marginEnd="4dp"
+                    android:layout_weight="1.5">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="@android:style/TextAppearance.Small"
+                        android:textStyle="bold"
+                        android:layout_marginStart="16dp"
+                        android:text="Make a call"
+                        android:textColor="@color/colorPrimaryDark"
+                        />
+                </LinearLayout>
             </LinearLayout>
 
             <View
@@ -164,14 +253,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:paddingEnd="@dimen/icon_padding_right"
-                    android:src="@drawable/ic_phone_black_24dp" />
+                    android:src="@drawable/ic_baseline_star_24" />
 
                 <TextView
-                    android:id="@+id/phone_number"
+                    android:id="@+id/item_rating"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:autoLink="phone"
-                    android:textColor="@color/colorAccent"
                     android:textAppearance="@android:style/TextAppearance.Small"
                     android:textStyle="bold"/>
             </LinearLayout>

@@ -5,7 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:background="#ffffff"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical">
 
 <LinearLayout
@@ -17,7 +17,7 @@
         android:layout_width="match_parent"
         app:placeholder="@drawable/gradient_background"
         app:error_image="@drawable/gradient_background"
-        android:layout_height="210dp"
+        android:layout_height="200dp"
         android:layout_margin="8dp"
         app:auto_cycle="true"
         app:period="1000"
@@ -25,7 +25,7 @@
         />
     <ImageView
         android:id="@+id/imageView4"
-        android:layout_width="300dp"
+        android:layout_width="200dp"
         android:layout_height="50dp"
         android:layout_gravity="center_horizontal"
         android:src="@drawable/wellcome" />
@@ -156,7 +156,7 @@
     </ScrollView>
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:src="@drawable/back"/>
 </LinearLayout>
 

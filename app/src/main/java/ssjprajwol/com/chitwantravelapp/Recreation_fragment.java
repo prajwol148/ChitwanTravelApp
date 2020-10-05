@@ -10,40 +10,30 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ListView;
 
 import java.util.ArrayList;
 
-public class RestaurantFragment extends Fragment {
+
+public class Recreation_fragment extends Fragment {
     private RecyclerView mRecyclerView; //This will contain recycle view created in XML in word_list
     private RecyclerView.LayoutManager mLayoutManager; //This layoutManager will align items in list
 
-
-    public RestaurantFragment() {
+    public Recreation_fragment() {
         // Required empty public constructor
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View rootView = inflater.inflate(R.layout.word_list, container, false);
+        View rootView=  inflater.inflate(R.layout.word_list, container, false);
 
         final ArrayList<Word> words = new ArrayList<Word>();
 
-        words.add(new Word("Munch Time Cafe","Milan Road, Bharatpur","8:00 AM- 9:00 PM",
-                "Economical","+97756525095","4/5",R.drawable.munch,getString(R.string.info_munch_time),"https://goo.gl/maps/ha17sCs4pe48Yojr6"));
-
-        words.add(new Word("Greasy Spoon Restaurant","Sauraha Road, Sauraha","7:00 AM- 10:00 PM",
-                "Lavish","+97756580057","4/5",R.drawable.greasy,getString(R.string.info_greasy),"https://goo.gl/maps/GE2hUVJFir15GDS66"));
-
-        words.add(new Word("Friends Cafe","Hatti Chowk, Sauraha","9:00 AM- 10:00 PM",
-                "Lavish","+9779806857620","4/5",R.drawable.friends,getString(R.string.info_friends),"https://goo.gl/maps/QJ6RW5K99gBjFMo47"));
-
-        words.add(new Word("Kc's Restaurant and Bar","Rhino Statue, Sauraha","7:00 AM- 10:00 PM",
-                "Lavish","+97756525095","4/5",R.drawable.kc,getString(R.string.info_kc),"https://g.page/kc-s-restaurant-bar?share"));
-
+        words.add(new Word("Chitwan Elephant Safari","Sauraha","8:00 AM- 4:00 PM",
+                "Npr.2500-4500 per ride","+9779863599717","4/5",R.drawable.elephant,getString(R.string.info_elep_safari),"https://goo.gl/maps/EJRxe66YitrZ8yYR6"));
+        words.add(new Word("Chitwan National Park Jeep Safari","Sauraha","8:00 AM- 4:00 PM",
+                "Npr.5000-9000 per ride","+97756580400","4/5",R.drawable.jeep,getString(R.string.jeep),"https://goo.gl/maps/EJRxe66YitrZ8yYR6"));
 
         mRecyclerView = (RecyclerView) rootView.findViewById(R.id.list);
         mRecyclerView.setHasFixedSize(true);
